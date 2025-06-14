@@ -8,8 +8,9 @@ enum ServerStatus {
 
 const BASE_URL = 'http://24.199.102.30:3000';
 //const BASE_URL = 'http://localhost:3000';
+const ENDPOINT = '/api/cuby/uptime'
 // Run the simulation
-const SERVER_COUNT = 100;
+const SERVER_COUNT = 500;
 const UPDATE_INTERVAL = 5000; // 5 seconds
 
 interface ServerData {
@@ -72,10 +73,12 @@ function generateServerData(id: number): ServerData {
 // Simulate a single server
 async function simulateServer(serverId: number) {
   const serverData = generateServerData(serverId);
+  // wait 5 seconds
+  await new Promise(resolve => setTimeout(resolve, 5000));
 
   try {
-    // const response = await fetch('http://24.199.102.30:3000/api/hello', {
-    const response = await fetch(`${BASE_URL}/api/store`, {
+    // const response = await fetch('http://24.199.102.30:3000/api/cuby/uptime', {
+    const response = await fetch(`${BASE_URL}${ENDPOINT}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

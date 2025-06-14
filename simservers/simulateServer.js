@@ -2,7 +2,8 @@ import { execSync } from 'child_process';
 
 const serverId = Number(process.argv[2]);
 const BASE_URL = 'http://24.199.102.30:3000';
-const ENDPOINT = '/api/store'
+//const BASE_URL = 'http://localhost:3000';
+const ENDPOINT = '/api/cuby/uptime'
 
 async function getSystemUptime() {
   try {

@@ -1,4 +1,4 @@
-const SERVER_COUNT = 100;
+const SERVER_COUNT = 1000;
 
 async function simulateServers() {
   const procs = [];
